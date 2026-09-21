@@ -1,0 +1,299 @@
+/* ==========================================================================
+   Saltline Retreats - stylesheet
+   Built only from design-system.md.
+   Three stacked 100svh poster panels. Real CSS duotone via mix-blend-mode.
+   Zero radius. No borders. No shadows. No gradients.
+   ========================================================================== */
+
+/* --- 1. TOKENS ---------------------------------------------------------- */
+:root {
+  --ink:     #081F28;
+  --ground:  #E8DCC8;
+  --surface: #0C3B4A;
+  --brand:   #0C3B4A;
+  --accent:  #E2674A;
+  --rule:    rgba(12,59,74,.2);
+  --muted:   #4A5A62;
+
+  --step--1: clamp(0.80rem, 0.78rem + 0.10vw, 0.85rem);
+  --step-0:  clamp(1.0625rem, 1.04rem + 0.11vw, 1.10rem);
+  --step-1:  clamp(1.30rem, 1.24rem + 0.30vw, 1.47rem);
+  --step-2:  clamp(1.65rem, 1.52rem + 0.65vw, 1.96rem);
+  --step-3:  clamp(2.05rem, 1.80rem + 1.25vw, 2.61rem);
+  --step-4:  clamp(2.50rem, 2.02rem + 2.40vw, 3.48rem);
+  --step-5:  clamp(3.00rem, 2.20rem + 4.00vw, 4.64rem);
+  --poster:  clamp(3.20rem, 1.90rem + 6.20vw, 6.50rem);
+
+  --s1:4px;  --s2:8px;  --s3:12px; --s4:16px; --s5:24px;
+  --s6:32px; --s7:48px; --s8:64px; --s9:96px;
+
+  --rhythm: 64px;
+  --wrap: 1280px;
+  --measure: 62ch;
+
+  --display: "Bodoni Moda", Didot, "Bodoni MT", Georgia, serif;
+  --body: "Manrope", system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+/* --- 2. RESET ----------------------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body, h1, h2, h3, h4, p, ul, ol, li, figure, blockquote, dl, dd { margin: 0; padding: 0; }
+ul, ol { list-style: none; }
+img { max-width: 100%; height: auto; display: block; }
+button, input, select, textarea { font: inherit; color: inherit; }
+
+body {
+  background: var(--ground);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: var(--step-0);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--display);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
+h1 { font-size: var(--step-4); }
+h2 { font-size: var(--step-3); }
+h3 { font-size: var(--step-1); font-family: var(--body); font-weight: 700;
+     letter-spacing: 0; line-height: 1.25; }
+h4 { font-size: var(--step-0); font-family: var(--body); font-weight: 700;
+     letter-spacing: 0; }
+
+p, li { max-width: var(--measure); }
+p, li, dd, dt, address, h1, h2, h3, h4, caption, figcaption {
+  overflow-wrap: break-word; }
+a { overflow-wrap: anywhere; }
+p + p { margin-top: var(--s5); }
+
+a { color: inherit; text-decoration: underline; text-underline-offset: 0.16em;
+    text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+::selection { background: var(--surface); color: var(--ground); }
+
+.skip { position: absolute; left: -9999px; top: 0; background: var(--surface);
+        color: var(--ground); padding: var(--s4) var(--s6); z-index: 60;
+        text-decoration: none; }
+.skip:focus { left: var(--s4); top: var(--s4); }
+
+.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden;
+                   clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; }
+
+/* the one permitted use of letterspacing on this site */
+.dest { font-family: var(--body); font-weight: 700; font-size: var(--step--1);
+        letter-spacing: 0.18em; text-transform: uppercase; }
+
+/* --- 3. LAYOUT ---------------------------------------------------------- */
+.wrap { width: 100%; max-width: var(--wrap); margin-inline: auto;
+        padding-inline: var(--s5); }
+@media (min-width: 900px) { .wrap { padding-inline: var(--s7); } }
+
+.band { padding-block: var(--rhythm); }
+.band--sea { background: var(--surface); color: var(--ground); }
+.band--sea a { color: var(--ground); }
+.band + .band { border-top: 0; }
+
+.lede { font-size: var(--step-1); line-height: 1.4; max-width: 54ch; }
+h1 + .lede, h2 + .lede, h1 + p, h2 + p { margin-top: var(--s5); }
+.band > .wrap > h1, .band > .wrap > h2 { margin-bottom: 0; }
+.meta { font-size: var(--step--1); color: var(--muted); }
+.band--sea .meta { color: rgba(232,220,200,.78); }
+.head { margin-bottom: var(--s7); }
+.head p { margin-top: var(--s4); }
+
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s8); }
+.two > * { min-width: 0; }
+
+/* --- 4. NAV STRIP - above the posters, never over them ------------------ */
+.strip { background: var(--ground); border-bottom: 1px solid var(--accent); }
+.strip__inner { display: flex; align-items: center; justify-content: space-between;
+                gap: var(--s5); padding-block: var(--s4); flex-wrap: wrap; }
+.wordmark { display: inline-flex; align-items: center; gap: var(--s3);
+            text-decoration: none; color: var(--ink); }
+.wordmark svg { width: 30px; height: 30px; flex: none; }
+.wordmark b { font-family: var(--display); font-weight: 700; font-size: var(--step-1);
+              letter-spacing: -0.03em; display: block; }
+.wordmark span { display: block; font-size: 0.72rem; color: var(--muted); }
+
+.strip nav ul { display: flex; flex-wrap: wrap; gap: var(--s2) var(--s5); }
+.strip nav a { font-size: var(--step--1); text-decoration: none; font-weight: 700;
+               display: inline-block; padding: 12px 0; min-height: 44px;
+               line-height: 20px; border-bottom: 2px solid transparent; }
+.strip nav a:hover, .strip nav a[aria-current="page"] {
+  border-bottom-color: var(--accent); }
+
+/* --- 5. THE POSTER PANEL - the memorable thing -------------------------- */
+.poster { position: relative; min-height: 560px; height: 100svh;
+          display: flex; align-items: flex-end; overflow: hidden; }
+
+.poster__media { position: absolute; inset: 0; background: var(--surface);
+                 isolation: isolate; }
+.poster__media img { width: 100%; height: 100%; object-fit: cover;
+                     filter: grayscale(1) contrast(1.06);
+                     mix-blend-mode: screen; }
+.poster__media::after { content: ""; position: absolute; inset: 0;
+                        background: var(--ground); mix-blend-mode: multiply; }
+
+.poster__panel { position: relative; background: var(--surface);
+                 color: var(--ground); padding: var(--s7);
+                 max-width: 44rem; margin: 0 0 var(--s7) 0; }
+.poster__panel .dest { color: var(--ground); display: block;
+                       margin-bottom: var(--s3); }
+.poster__title { font-size: var(--poster); line-height: .95;
+                 letter-spacing: -0.03em; margin-bottom: var(--s4); }
+.poster__panel p { color: var(--ground); max-width: 40ch; }
+.poster__facts { display: grid; grid-template-columns: auto 1fr;
+                 gap: var(--s2) var(--s5); margin-top: var(--s5); margin-bottom: 0;
+                 font-size: var(--step--1); }
+.poster__facts dt { color: rgba(232,220,200,.75); }
+.poster__facts dd { margin: 0; font-weight: 700; }
+.poster__panel .btn { margin-top: var(--s6); }
+
+/* --- 6. BUTTON - solid coral rectangle, ink label ---------------------- */
+.btn {
+  display: inline-block; font-family: var(--body); font-weight: 700;
+  font-size: var(--step--1); text-decoration: none; cursor: pointer;
+  background: var(--accent); color: var(--ink);
+  border: 0; border-radius: 0; padding: 18px var(--s6); min-height: 44px;
+  transition: background-color .15s linear, color .15s linear;
+}
+.btn:hover, .btn:focus-visible { background: var(--ink); color: var(--ground); }
+.btn--ghost { background: transparent; color: var(--ink);
+              box-shadow: inset 0 0 0 2px var(--ink); }
+.band--sea .btn--ghost { color: var(--ground); box-shadow: inset 0 0 0 2px var(--ground); }
+.btn--ghost:hover, .btn--ghost:focus-visible { background: var(--accent);
+  color: var(--ink); box-shadow: inset 0 0 0 2px var(--accent); }
+
+/* --- 7. DEFINITION LISTS - the only tabular object --------------------- */
+.particulars { display: grid; grid-template-columns: 11rem 1fr; gap: 0;
+               margin-top: var(--s5); }
+.particulars dt { padding: var(--s3) 0; border-top: 1px solid var(--rule);
+                  font-size: var(--step--1); color: var(--muted); }
+.particulars dd { padding: var(--s3) 0; border-top: 1px solid var(--rule);
+                  margin: 0; font-weight: 700; }
+.band--sea .particulars dt { border-top-color: rgba(232,220,200,.28);
+                             color: rgba(232,220,200,.75); }
+.band--sea .particulars dd { border-top-color: rgba(232,220,200,.28); }
+
+/* --- 8. FIGURES / PROSE ------------------------------------------------- */
+.figure img { width: 100%; }
+.figure figcaption { font-size: var(--step--1); color: var(--muted);
+                     margin-top: var(--s3); }
+.band--sea .figure figcaption { color: rgba(232,220,200,.78); }
+
+/* duotone applied to inline figures too, so the whole site is two colours */
+.duo { position: relative; background: var(--surface); isolation: isolate; }
+.duo img { filter: grayscale(1) contrast(1.06); mix-blend-mode: screen; }
+.duo::after { content: ""; position: absolute; inset: 0;
+              background: var(--ground); mix-blend-mode: multiply; }
+
+.prose h2 { margin-top: var(--s8); margin-bottom: var(--s4); }
+.prose h3 { margin-top: var(--s7); margin-bottom: var(--s3); }
+.prose > h2:first-child, .prose > h3:first-child { margin-top: 0; }
+.prose ul { list-style: disc; margin-top: var(--s4); padding-left: var(--s5); }
+.prose ol { list-style: decimal; margin-top: var(--s4); padding-left: var(--s5); }
+.prose li { margin-top: var(--s2); }
+.prose figure { margin-top: var(--s6); }
+
+.daylist { margin-top: var(--s5); }
+.daylist li { display: grid; grid-template-columns: 6.5rem 1fr; gap: var(--s5);
+              padding-block: var(--s4); border-top: 1px solid var(--rule);
+              max-width: none; margin: 0; }
+.band--sea .daylist li { border-top-color: rgba(232,220,200,.28); }
+.daylist time { font-weight: 700; font-variant-numeric: tabular-nums; }
+.daylist p { margin: 0; }
+
+/* --- 9. FAQ (details/summary, CSS only) -------------------------------- */
+.faq { margin-top: var(--s5); border-top: 1px solid var(--rule); }
+.faq details { border-bottom: 1px solid var(--rule); }
+.faq summary { cursor: pointer; padding: var(--s4) 0; font-weight: 700;
+               list-style: none; display: flex; gap: var(--s3);
+               min-height: 44px; align-items: baseline; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::before { content: "+"; color: var(--accent); flex: none;
+                       font-weight: 700; }
+.faq details[open] summary::before { content: "\2212"; }
+.faq details > *:not(summary) { margin-bottom: var(--s4); }
+
+/* --- 10. FORMS ---------------------------------------------------------- */
+.field { display: block; margin-top: var(--s5); max-width: 34rem; }
+.field span { display: block; font-size: var(--step--1); margin-bottom: var(--s2); }
+.field input, .field textarea, .field select {
+  width: 100%; padding: 14px; min-height: 44px; border-radius: 0;
+  border: 1px solid var(--rule); background: var(--ground); color: var(--ink);
+}
+.field textarea { min-height: 160px; resize: vertical; }
+
+/* --- 11. AD SLOTS ------------------------------------------------------- */
+.ad { margin-block: var(--rhythm); }
+.ad__label { font-size: 0.72rem; color: var(--muted); margin-bottom: var(--s2);
+             font-weight: 700; }
+.band--sea .ad__label { color: rgba(232,220,200,.78); }
+.ad__slot { background: rgba(12,59,74,.08); max-width: 100%; }
+.band--sea .ad__slot { background: rgba(232,220,200,.12); }
+.ad--leaderboard .ad__slot { width: 728px; height: 90px; }
+.ad--rect      .ad__slot { width: 336px; height: 280px; }
+.ad--mrec      .ad__slot { width: 300px; height: 250px; }
+.ad--leaderboard { margin-block: var(--s6); }
+
+/* --- 12. FOOTER --------------------------------------------------------- */
+.footer { background: var(--surface); color: var(--ground); }
+.footer a { color: var(--ground); }
+.footer__inner { padding-block: var(--s9); display: grid;
+                 grid-template-columns: repeat(4, 1fr); gap: var(--s7); }
+.footer__inner > * { min-width: 0; }
+.footer h2 { font-size: var(--step--1); font-family: var(--body); font-weight: 700;
+             letter-spacing: 0; margin-bottom: var(--s3); }
+.footer li { font-size: var(--step--1); max-width: none; }
+.footer li a { display: inline-block; padding-block: 11px; }
+.footer p, .footer address { font-size: var(--step--1); font-style: normal;
+                             max-width: none; }
+.footer__base { border-top: 1px solid rgba(232,220,200,.28);
+                padding-block: var(--s5); display: flex;
+                justify-content: space-between; gap: var(--s5); flex-wrap: wrap;
+                font-size: var(--step--1); }
+
+/* --- 13. RESPONSIVE ----------------------------------------------------- */
+@media (max-width: 1024px) {
+  .footer__inner { grid-template-columns: repeat(2, 1fr); }
+  .two { grid-template-columns: 1fr; gap: var(--s7); }
+}
+@media (max-width: 720px) {
+  :root { --rhythm: 48px; }
+  .poster { height: auto; min-height: 0; }
+  .poster__media { position: relative; height: 62svh; min-height: 300px; }
+  .poster { display: block; }
+  .poster__panel { max-width: none; margin: 0; padding: var(--s6) var(--s5); }
+  .particulars { grid-template-columns: 1fr; }
+  .particulars dd { border-top: 0; padding-top: 0; }
+  .daylist li { grid-template-columns: 1fr; gap: var(--s2); }
+  .footer__inner { grid-template-columns: 1fr; gap: var(--s6); }
+  .btn { width: 100%; text-align: center; }
+}
+
+/* --- 14. MOTION --------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .001ms; animation-iteration-count: 1;
+    transition-duration: .001ms; scroll-behavior: auto;
+  }
+}
+@media print {
+  .strip, .footer, .ad { display: none; }
+  body { background: #fff; color: #000; }
+  .poster { height: auto; min-height: 0; }
+}
+
+/* --- 15. POLICY PAGES --------------------------------------------------- */
+.policy-nav { margin-top: var(--s4); }
+.policy-nav li { font-size: var(--step--1); max-width: none; }
+.policy-nav a { display: inline-block; padding-block: 11px; }
+.policy-nav a[aria-current="page"] { text-decoration-thickness: 2px;
+                                     font-weight: 700; }

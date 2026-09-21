@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="30" height="30"
+     fill="none" stroke="currentColor" stroke-width="1.5" role="img"
+     aria-label="A low sun above two horizon lines">
+  <title>Saltline Retreats</title>
+  <circle cx="15" cy="11" r="5.5"/>
+  <path d="M1.5 20.5h27" stroke-width="2"/>
+  <path d="M4.5 25h21" opacity=".55"/>
+</svg>

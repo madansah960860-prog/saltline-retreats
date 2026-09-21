@@ -1,0 +1,71 @@
+IMAGE CREDITS - Saltline Retreats
+All photographs are downloaded and served locally from assets/images/.
+Nothing is hotlinked. No watermarks, no brand logos, no identifiable
+individuals (every person in this set is a distant silhouette), no minors.
+
+NOTE ON TREATMENT: every photograph on this site is duotoned in CSS at
+render time using mix-blend-mode - shadows resolve to deep sea #0C3B4A and
+highlights to sand #E8DCC8. The files below are unmodified colour originals
+apart from resizing and compression; the two-colour look is the stylesheet.
+
+Licence for every file: Pexels Licence - free for commercial and
+non-commercial use, no attribution required. Credit given voluntarily.
+====================================================================
+
+hero/poster-goa.jpg
+  title      : Silhouette of woman practicing yoga at sunset beach
+  photograph : credited on the source page
+  source     : https://www.pexels.com/photo/silhouette-of-woman-practicing-yoga-at-sunset-beach-32658879/
+
+hero/poster-rishikesh.jpg
+  title      : Serene riverside view of Rishikesh at sunset
+  photograph : Ekam Juneja
+  source     : https://www.pexels.com/photo/serene-riverside-view-of-rishikesh-at-sunset-38044214/
+
+hero/poster-bali.jpg
+  title      : Silhouette of woman stretching at sunset by ocean
+  photograph : credited on the source page
+  source     : https://www.pexels.com/photo/silhouette-of-woman-stretching-at-sunset-by-ocean-30411893/
+
+detail/detail-horizon.jpg
+  title      : Wide shot of an ocean during sunset
+  photograph : credited on the source page
+  source     : https://www.pexels.com/photo/wide-shot-of-an-ocean-during-sunset-7208862/
+
+detail/detail-water.jpg
+  title      : Calm ocean water during golden hour
+  photograph : credited on the source page
+  source     : https://www.pexels.com/photo/calm-ocean-water-during-golden-hour-1887476/
+
+detail/detail-surf.jpg
+  title      : Horizon with a silhouette of a woman on a surfboard
+  photograph : credited on the source page
+  source     : https://www.pexels.com/photo/horizon-with-a-silhouette-of-a-woman-on-a-surfboard-12548080/
+
+included/included-dawn.jpg
+  title      : Silhouette of a person exercising on the seashore at sunrise
+  photograph : credited on the source page
+  source     : https://www.pexels.com/photo/silhouette-of-a-person-exercising-on-the-seashore-at-sunrise-16111029/
+
+included/included-evening.jpg
+  title      : Serene Zanzibar ocean sunset at golden hour
+  photograph : credited on the source page
+  source     : https://www.pexels.com/photo/serene-zanzibar-ocean-sunset-at-golden-hour-30309692/
+
+included/included-water.jpg
+  title      : Calm ocean waves at sunset overlooking the horizon
+  photograph : credited on the source page
+  source     : https://www.pexels.com/photo/calm-ocean-waves-at-sunset-overlooking-the-horizon-33360556/
+
+people/place-laxman-jhula.jpg
+  title      : Scenic view of Laxman Jhula bridge in Rishikesh
+  photograph : Capturing Rishikesh
+  source     : https://www.pexels.com/photo/scenic-view-of-laxman-jhula-bridge-in-rishikesh-36123978/
+
+og/og-saltline.jpg
+  title      : Scenic view of an ocean during golden hour
+  photograph : credited on the source page
+  source     : https://www.pexels.com/photo/scenic-view-of-an-ocean-during-golden-hour-7542112/
+
+--------------------------------------------------------------------
+assets/images/logo.svg and favicon.svg are hand-drawn for this site.

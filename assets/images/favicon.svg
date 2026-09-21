@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" role="img" aria-label="Saltline Retreats">
+  <rect width="32" height="32" fill="#0C3B4A"/>
+  <circle cx="16" cy="12" r="6" fill="#E2674A"/>
+  <path d="M2 22h28M5 27h22" stroke="#E8DCC8" stroke-width="2.2" fill="none"/>
+</svg>
